@@ -1,8 +1,8 @@
-#DeepSelect
+# DeepSelect
 Library for multi-agent simulation systems.
-####Trello
+#### Trello
 https://trello.com/b/tPwXdzjc/deepselect
-####Authors
+#### Authors
 Marek Moryl
 Krzysztof Woźny
 Krzysztof Blecharczyk
