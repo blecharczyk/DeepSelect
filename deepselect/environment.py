@@ -1,6 +1,17 @@
+from random import shuffle
+
+
 class Environment:
     def __init__(self):
         self.nodes = []
 
     def step(self):
-        pass
+        nodes = self.nodes[:]
+        
+        shuffle(nodes)
+        for node in nodes:
+            node.choose_actions()
+            
+        shuffle(nodes)
+        for node in nodes:
+            node.commit_actions()

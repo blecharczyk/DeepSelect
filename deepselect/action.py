@@ -1,2 +1,3 @@
 class Action:
-    pass
+    def execute(self, agent):
+        pass
