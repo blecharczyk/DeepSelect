@@ -4,3 +4,4 @@ class Element:
         self.data = data
         self.resources = resources
         self.current_node = None
+        self.category = None
