@@ -18,6 +18,6 @@ class Agent(Element):
     
     def commit_action(self):
         if self._next_action is None or self._next_action.cost > self.resources:
-            self._next_action = Action()  #TODO: Replace with IdleAction
+            self._next_action = Action(0.0)  #TODO: Replace with IdleAction
                 
         self._next_action.execute(self)
