@@ -39,9 +39,15 @@ class Resources:
         assert self >= other
         self.amounts -= other.amounts
     
+
+    def __lt__(self, other):
+        return self <= other and self != other
     
     def __le__(self, other):
         return (self.amounts <= other.amounts).all()
+
+    def __gt__(self, other):
+        return self >= other and self != other
     
     def __ge__(self, other):
         return (self.amounts >= other.amounts).all()
