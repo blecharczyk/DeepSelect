@@ -1,13 +1,13 @@
 from random import shuffle
 
 from deepselect.category import Category
-from deepselect.categorizer import UniformCategorizer
+from deepselect.categorizer import BehaviorCategorizer, UniformCategorizer
 
 
 class Environment:
     def __init__(self):
         self.nodes = []
-        self.agent_categorizer = UniformCategorizer(Category(name='Agents', color='red'))
+        self.agent_categorizer = BehaviorCategorizer()
         self.object_categorizer = UniformCategorizer(Category(name='Objects', color='black'))
 
     def step(self):
