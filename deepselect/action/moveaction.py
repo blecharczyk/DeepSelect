@@ -20,4 +20,4 @@ class MoveAction(Action):
 
         # Add agent to the destination node
         destination = random.choice(source.neighbors)
-        destination.agents.append(agent)
+        destination.add_agent(agent)

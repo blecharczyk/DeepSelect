@@ -8,6 +8,16 @@ class Node:
         self.neighbors = []
         self.agents = []
         self.objects = []
+
+
+    def add_agent(self, agent):
+        self.agents.append(agent)
+        agent.current_node = self
+
+
+    def add_object(self, object):
+        self.objects.append(object)
+        object.current_node = self
         
     
     def choose_actions(self):
