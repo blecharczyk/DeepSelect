@@ -22,6 +22,11 @@ class Resources:
         
         position = key if isinstance(key, int) else self.names.index(key)
         self.amounts[position] = value
+
+
+    def zeroed(self):
+        zeroed_amounts = np.zeros_like(self.amounts)
+        return Resources(self.names, zeroed_amounts)
     
     
     def __add__(self, other):
