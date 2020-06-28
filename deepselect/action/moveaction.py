@@ -15,9 +15,6 @@ class MoveAction(Action):
         # Use resources to move to another node
         agent.resources -= self.cost
 
-        # Unlist agent from the source node (agent will be removed at the end of the simulation step)
-        source.unlist_from_current_node()
-
-        # Add agent to the destination node
+        # Move agent to random neighbor of current node
         destination = random.choice(source.neighbors)
-        destination.add_agent(agent)
+        agent.move_to(destination)
