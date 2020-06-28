@@ -8,6 +8,11 @@ class Element:
         self.alive = True
 
 
+    def update_category(self, categorizer):
+        new_category = categorizer.get_category_of(self)
+        self.category = new_category
+
+
     def die(self):
         # Mark the element as dead
         self.alive = False

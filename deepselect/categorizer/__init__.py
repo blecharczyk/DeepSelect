@@ -1,0 +1,1 @@
+from deepselect.categorizer.categorizer import Categorizer

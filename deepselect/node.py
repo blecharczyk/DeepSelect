@@ -24,6 +24,16 @@ class Node:
         for agent in self._local_agents:
             if agent is not None:
                 agent.commit_action()
+
+    
+    def categorize_agents(self, categorizer):
+        for agent in self.agents:
+            agent.update_category(categorizer)
+
+    
+    def categorize_objects(self, categorizer):
+        for object in self.objects:
+            object.update_category(categorizer)
     
 
     def unlist_agent(self, agent):

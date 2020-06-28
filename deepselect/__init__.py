@@ -6,3 +6,4 @@ from deepselect.object import Object
 from deepselect.behavior import Behavior
 from deepselect.action import Action, IdleAction
 from deepselect.resources import Resources
+from deepselect.categorizer import Categorizer
