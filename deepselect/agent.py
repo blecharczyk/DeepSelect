@@ -1,5 +1,5 @@
 from deepselect.element import Element
-from deepselect.action import IdleAction
+from deepselect.action import IdleAction, DieAction
 
 
 class Agent(Element):
@@ -18,7 +18,7 @@ class Agent(Element):
     
     def commit_action(self):
         if self._next_action is None or self._next_action.cost > self.resources:
-            self._next_action = IdleAction(0.0)
+            self._next_action = DieAction()
                 
         self._next_action.execute(self)
 
