@@ -21,7 +21,8 @@ class Node:
         self.agents.sort(key=attrgetter('initiative'), reverse=True)
         
         for agent in self.agents:
-            agent.commit_action()
+            if agent is not None:
+                agent.commit_action()
 
 
     def clear_unlisted(self):
