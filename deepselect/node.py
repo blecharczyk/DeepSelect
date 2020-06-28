@@ -11,29 +11,26 @@ class Node:
         
     
     def choose_actions(self):
-        for agent in self.agents:
+        self._local_agents = self.agents.copy()
+        for agent in self._local_agents:
             agent.choose_action()
             agent.reset_initiative()
             
     
     def commit_actions(self):
         # Sort agents by initiative
-        self.agents.sort(key=attrgetter('initiative'), reverse=True)
+        self._local_agents.sort(key=attrgetter('initiative'), reverse=True)
         
-        for agent in self.agents:
+        for agent in self._local_agents:
             if agent is not None:
                 agent.commit_action()
-
-
-    def clear_unlisted(self):
-        self.agents = filter(lambda a: a is not None, self.agents)
-        self.objects = filter(lambda o: o is not None, self.objects)
     
 
     def unlist_agent(self, agent):
-        ix = self.agents.index(agent)
+        self.agents.remove(agent)
+
+        ix = self._local_agents.index(agent)
         self.agents[ix] = None
 
     def unlist_objects(self, object):
-        ix = self.objects.index(object)
-        self.objects[ix] = None
+        self.objects.remove(object)
