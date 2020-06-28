@@ -28,8 +28,7 @@ class Node:
     def clear_unlisted(self):
         self.agents = filter(lambda a: a is not None, self.agents)
         self.objects = filter(lambda o: o is not None, self.objects)
-
-
+    
 
     def unlist_agent(self, agent):
         ix = self.agents.index(agent)
