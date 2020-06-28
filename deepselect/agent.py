@@ -6,6 +6,7 @@ class Agent(Element):
     def __init__(self, agent_id, data, resources, behavior):
         Element.__init__(self, agent_id, data, resources)
         self.behavior = behavior
+        self.fallback_action = IdleAction(None)
         
         
     def choose_action(self):
@@ -18,7 +19,10 @@ class Agent(Element):
     
     def commit_action(self):
         if self._next_action is None or self._next_action.cost > self.resources:
-            self._next_action = DieAction()
+            self._next_action = self.fallback_action
+            
+            if self._next_action is None or self._next_action.cost > self.resources:
+                self._next_action = DieAction()
                 
         self._next_action.execute(self)
 
