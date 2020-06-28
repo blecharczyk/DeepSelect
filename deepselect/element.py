@@ -5,3 +5,19 @@ class Element:
         self.resources = resources
         self.current_node = None
         self.category = None
+        self.alive = True
+
+
+    def die(self):
+        # Mark the element as dead
+        self.alive = False
+
+        # Return all unused resources to the local environment
+        self.current_node.resources += self.resources
+
+        # Remove the reference to the element from the local environment
+        self.unlist_from_current_node()
+
+    
+    def unlist_from_current_node(self):
+        pass

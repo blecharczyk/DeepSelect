@@ -15,3 +15,4 @@ class Environment:
         shuffle(nodes)
         for node in nodes:
             node.commit_actions()
+            node.clear_unlisted()

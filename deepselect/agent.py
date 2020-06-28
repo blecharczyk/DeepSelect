@@ -21,3 +21,9 @@ class Agent(Element):
             self._next_action = IdleAction(0.0)
                 
         self._next_action.execute(self)
+
+
+    def unlist_from_current_node(self):
+        if self.current_node is not None:
+            self.current_node.unlist_agent(self)
+            self.current_node = None

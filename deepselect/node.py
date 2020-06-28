@@ -23,3 +23,17 @@ class Node:
         for agent in self.agents:
             agent.commit_action()
 
+
+    def clear_unlisted(self):
+        self.agents = filter(lambda a: a is not None, self.agents)
+        self.objects = filter(lambda o: o is not None, self.objects)
+
+
+
+    def unlist_agent(self, agent):
+        ix = self.agents.index(agent)
+        self.agents[ix] = None
+
+    def unlist_objects(self, object):
+        ix = self.objects.index(object)
+        self.objects[ix] = None
