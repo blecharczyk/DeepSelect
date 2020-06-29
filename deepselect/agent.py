@@ -39,3 +39,7 @@ class Agent(Element):
         if self.current_node is not None:
             self.current_node.remove_agent(self)
             self.current_node = None
+
+
+    def __str__(self):
+        return "Agent_id: " + str(self.element_id) + "; data: " + str(self.data) + "; resources: " + str(self.resources) + "."
