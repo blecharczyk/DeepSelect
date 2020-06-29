@@ -10,6 +10,14 @@ class Node:
         self.objects = []
 
 
+    def add_resources(self, resources):
+        self.resources = self.resources + resources
+
+
+    def sub_resources(self, resources):
+        self.resources = self.resources - resources
+
+
     def add_agent(self, agent):
         self.agents.append(agent)
         agent.current_node = self

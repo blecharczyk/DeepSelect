@@ -18,7 +18,8 @@ class Element:
         self.alive = False
 
         # Return all unused resources to the local environment
-        self.current_node.resources += self.resources
+        self.current_node.resources = self.current_node.resources + self.resources
+        self.resources = self.resources.zeroed()
 
         # Remove the reference to the element from the local environment
         self.unlist_from_current_node()
