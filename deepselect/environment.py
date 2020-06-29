@@ -43,3 +43,22 @@ class Environment:
             node.commit_actions()
             node.categorize_agents(self.agent_categorizer)
             node.categorize_objects(self.object_categorizer)
+
+
+
+def from_graph(G, initial_resources):
+    nodes = []
+    for i in range(len(G)):
+        node = Node(i, initial_resources)
+
+        for neighbor in G[i]:
+            node.neighbors.append(neighbor)
+
+        G.nodes[i]['node'] = node
+        nodes.append(node)
+    
+    env = Environment()
+    env.graph = G
+    env.nodes = nodes
+
+    return env

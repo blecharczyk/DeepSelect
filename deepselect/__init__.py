@@ -1,4 +1,4 @@
-from deepselect.environment import Environment
+from deepselect.environment import Environment, from_graph
 from deepselect.node import Node
 from deepselect.element import Element
 from deepselect.agent import Agent
