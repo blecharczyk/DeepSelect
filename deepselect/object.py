@@ -8,5 +8,5 @@ class Object(Element):
 
     def unlist_from_current_node(self):
         if self.current_node is not None:
-            self.current_node.unlist_object(self)
+            self.current_node.remove_object(self)
             self.current_node = None
