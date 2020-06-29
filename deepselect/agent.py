@@ -7,6 +7,14 @@ class Agent(Element):
         Element.__init__(self, agent_id, data, resources)
         self.behavior = behavior
         self.fallback_action = IdleAction(resources.zeroed())
+
+
+    def move_to(self, destination):
+        # Remove the reference to the element from the source node
+        self.unlist_from_current_node()
+
+        # Place the element in the destination node
+        destination.add_agent(self)
         
         
     def choose_action(self):
@@ -29,5 +37,9 @@ class Agent(Element):
 
     def unlist_from_current_node(self):
         if self.current_node is not None:
-            self.current_node.unlist_agent(self)
+            self.current_node.remove_agent(self)
             self.current_node = None
+
+
+    def __str__(self):
+        return "Agent_id: " + str(self.element_id) + "; data: " + str(self.data) + "; resources: " + str(self.resources) + "."
