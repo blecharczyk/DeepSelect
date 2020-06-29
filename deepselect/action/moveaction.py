@@ -13,7 +13,7 @@ class MoveAction(Action):
             raise RuntimeError("No neighboring nodes present")
 
         # Use resources to move to another node
-        agent.resources -= self.cost
+        agent.resources = agent.resources - self.cost
 
         # Move agent to random neighbor of current node
         destination = random.choice(source.neighbors)
