@@ -47,7 +47,7 @@ class Node:
 
         if agent in self._local_agents:
             ix = self._local_agents.index(agent)
-            self.agents[ix] = None
+            self._local_agents[ix] = None
 
 
     def remove_object(self, object):
