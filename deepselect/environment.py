@@ -52,6 +52,11 @@ class Environment:
         shuffle(nodes)
         for node in nodes:
             node.commit_actions()
+        
+        # Categorization needs to happen in a separate loop,
+        # otherwise it may exclude nodes which changed location
+        # in this step.
+        for node in nodes:
             node.categorize_agents(self.agent_categorizer)
             node.categorize_objects(self.object_categorizer)
 
