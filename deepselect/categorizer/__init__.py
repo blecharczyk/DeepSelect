@@ -1,0 +1,3 @@
+from deepselect.categorizer.categorizer import Categorizer
+from deepselect.categorizer.uniform_categorizer import UniformCategorizer
+from deepselect.categorizer.behavior_categorizer import BehaviorCategorizer
