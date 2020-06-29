@@ -7,11 +7,15 @@ from deepselect.node import Node
 
 
 class Environment:
-    def __init__(self):
+    def __init__(self, node_count=None, initial_resources=None):
         self.nodes = []
         self.graph = nx.Graph()
         self.agent_categorizer = BehaviorCategorizer()
         self.object_categorizer = UniformCategorizer(Category(name='Objects', color='black'))
+
+        if node_count is not None:
+            for _ in range(node_count):
+                self.add_node(initial_resources)
 
 
     def add_node(self, initial_resources):
@@ -29,6 +33,13 @@ class Environment:
             self.nodes[from_node].neighbors.append(to_node)
             self.nodes[to_node].neighbors.append(from_node)
             self.graph.add_edge(from_node, to_node)
+
+
+    def remove_edge(self, from_node, to_node):
+        if self.graph.has_edge(from_node, to_node):
+            self.nodes[from_node].neighbors.remove(to_node)
+            self.nodes[to_node].neighbors.remove(from_node)
+            self.graph.remove_edge(from_node, to_node)
 
 
     def step(self):
