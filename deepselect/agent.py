@@ -26,12 +26,12 @@ class Agent(Element):
         
     
     def commit_action(self):
-        if self._next_action is None or self._next_action.cost > self.resources:
+        if self._next_action is None or not self._next_action.cost <= self.resources:
             self._next_action = self.fallback_action
             
-            if self._next_action is None or self._next_action.cost > self.resources:
+            if self._next_action is None or not self._next_action.cost <= self.resources:
                 self._next_action = DieAction(self.resources.zeroed())
-                
+
         self._next_action.execute(self)
 
 

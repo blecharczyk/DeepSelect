@@ -6,4 +6,4 @@ class IdleAction(Action):
         Action.__init__(self, cost)
     
     def execute(self, agent):
-        pass
+        agent.resources = agent.resources - self.cost

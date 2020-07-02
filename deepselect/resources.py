@@ -36,14 +36,6 @@ class Resources:
         assert self >= other
         return Resources(self.names, self.amounts - other.amounts)
     
-    
-    def __iadd__(self, other):
-        self.amounts += other.amounts
-    
-    def __isub__(self, other):
-        assert self >= other
-        self.amounts -= other.amounts
-    
 
     def __lt__(self, other):
         return self <= other and self != other
