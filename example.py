@@ -1,6 +1,9 @@
 import random
 import deepselect as ds
 import networkx as nx
+import matplotlib.pyplot as plt
+from time import sleep
+
 
 from deepselect.action import MoveAction
 
@@ -19,6 +22,7 @@ env.add_edge(3, 4)
 env.nodes[0].add_resources(ds.Resources(["food", "water"], [3, 4]))
 env.nodes[1].sub_resources(ds.Resources(["food", "water"], [1, 2]))
 
+
 # Print resources
 for node in env.nodes:
     print(node.node_id)
@@ -34,14 +38,24 @@ class RoamBehavior(ds.Behavior):
         return random.choice([move_action, idle_action])
 
 # Add agents
-agent_a = ds.Agent(1, (10, 0.3), ds.Resources(["food", "water"], [17, 20]), RoamBehavior())
+agent_a = ds.Agent("Agent_1", (10, 0.3), ds.Resources(["food", "water"], [17, 20]), RoamBehavior())
 agent_a.fallback_action = idle_action
 env.nodes[0].add_agent(agent_a)
 
-agent_b = ds.Agent(1, (20, 0.7), ds.Resources(["food", "water"], [14, 19]), RoamBehavior())
+agent_b = ds.Agent("Agent_2", (20, 0.7), ds.Resources(["food", "water"], [14, 19]), RoamBehavior())
 agent_b.fallback_action = idle_action
 env.nodes[1].add_agent(agent_b)
 
+print(env.get_agents_dict())
+
 # Start simulation
-vis = ds.Visualization(env, steps_per_frame=100)
+vis = ds.Visualization(env, steps_per_frame=1)
 vis.start(interval=500)
+
+
+
+
+
+
+
+
