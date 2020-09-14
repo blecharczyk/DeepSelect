@@ -46,7 +46,7 @@ agent_b = ds.Agent("Agent_2", (20, 0.7), ds.Resources(["food", "water"], [14, 19
 agent_b.fallback_action = idle_action
 env.nodes[1].add_agent(agent_b)
 
-print(env.get_agents_dict())
+print("\nAgents in each node:\n" + str(env.get_agents_dict()) + "\n")
 
 # Start simulation
 vis = ds.Visualization(env, steps_per_frame=1)
