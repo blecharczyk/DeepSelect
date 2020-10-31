@@ -13,7 +13,8 @@ class ResultsWriter(Writer):
             nodes_id.append("Results/node_" + str(i.node_id))
 
         for i in range(len(nodes_id)):
-            file_operator[i] = open(nodes_id[i], "a")
+            file_name = str(nodes_id[i]) + ".txt"
+            file_operator[i] = open(file_name, "a")
             file_operator[i].write(self.crop(step, i, dict))
             file_operator[i].close()
 
