@@ -1,5 +1,7 @@
 from deepselect.element import Element
-from deepselect.action import IdleAction, DieAction
+
+from deepselect.action.idleaction import IdleAction
+from deepselect.action.dieaction import DieAction
 
 
 class Agent(Element):

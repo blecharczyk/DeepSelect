@@ -51,11 +51,3 @@ print("\nAgents in each node:\n" + str(env.get_agents_dict()) + "\n")
 # Start simulation
 vis = ds.Visualization(env, steps_per_frame=1)
 vis.start(interval=500)
-
-
-
-
-
-
-
-

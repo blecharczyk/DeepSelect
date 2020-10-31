@@ -1,9 +1,14 @@
 import networkx as nx
 from random import shuffle
+import os
+import shutil
 
 from deepselect.category import Category
-from deepselect.categorizer import BehaviorCategorizer, UniformCategorizer
+
 from deepselect.node import Node
+
+from deepselect.categorizer.behavior_categorizer import BehaviorCategorizer
+from deepselect.categorizer.uniform_categorizer import UniformCategorizer
 
 
 class Environment:
@@ -80,6 +85,15 @@ class Environment:
             for m in resources[n]:
                 print(m, ':', resources[n][m])
             print("Agents:", agents[n])
+
+
+    # def aa(self):
+    #     nodes = set()
+    #     for node in self.nodes:
+    #         for n in node.neighbors:
+    #             if (node.node_id < n.node_id):
+    #                 nodes.add((node.node_id, n.node_id))
+    #     return nodes
 
 
 def from_graph(G, initial_resources):

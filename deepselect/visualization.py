@@ -4,8 +4,9 @@ from matplotlib.animation import FuncAnimation
 import os
 
 from deepselect import Resources
-from deepselect.agent_life_writer import AgentLifeWriter
-from deepselect.results_writer import ResultsWriter
+
+from deepselect.writers.agent_life_writer import AgentLifeWriter
+from deepselect.writers.results_writer import ResultsWriter
 
 clear = lambda: os.system('cls')
 
@@ -27,8 +28,11 @@ class Visualization:
         self._fig.canvas.set_window_title("DeepSelect")
         self._animation = FuncAnimation(self._fig, self._update, interval=interval)
 
-        self.alw.init_agents_directory()
-        self.rw.init_result_directory()
+        self.alw.init_directory("./Agents")
+        self.rw.init_directory("./Results")
+        self.alw.init_directory("./simplified_agent_life")
+
+        self.alw.prepare_files()
 
         plt.show()
 
@@ -48,6 +52,7 @@ class Visualization:
         print("Simulation step: " + str(self.total_steps))
         print(self.env.print_env_components())
         self.rw.write_results(self.env.get_resources_dict(), self.total_steps)
+        self.alw.write_simplified_results(self.total_steps)
         self.alw.write_results(self.total_steps)
         self._ax.set_title(f"Simulation step: {self.total_steps}")
         self._ax.set_xticks([])
