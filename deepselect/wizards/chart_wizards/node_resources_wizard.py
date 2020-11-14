@@ -9,7 +9,6 @@ class NodeResourcesWizard():
         file_path = "Results/" + str(filename)
         return pd.read_csv(file_path)
 
-
     def show_node_id_chart(self, df):
         x = df[str(df.columns[0])].to_list()
         for col_name in df.columns[1:]:
@@ -18,7 +17,6 @@ class NodeResourcesWizard():
         self.set_plot_properties("Amount of resources in the node", 'Simulation step', "Amount")
         plt.legend(df.columns.to_list()[1:])
         plt.show()
-
 
     def set_plot_properties(self, title, x_label, y_label):
         plt.title(title)

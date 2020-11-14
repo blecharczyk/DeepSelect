@@ -1,13 +1,8 @@
-import os
-import shutil
-
 from deepselect.writers.writer import Writer
-
 
 class EnvironmentStructureToFileWriter(Writer):
     def __init__(self, env):
         self.env = env
-
 
     def save_environment_map(self, filename, directory):
         self.init_directory(directory)
@@ -19,8 +14,6 @@ class EnvironmentStructureToFileWriter(Writer):
             s = str(edge[0]) + " " + str(edge[1]) + "\n"
             f.write(s)
         f.close()
-
-
 
     def prepare_edge_set(self):
         nodes = set()

@@ -1,14 +1,12 @@
 from deepselect.category import Category
 from deepselect.categorizer.categorizer import Categorizer
 
-
 class BehaviorCategorizer(Categorizer):
     def __init__(self, colors=None):
         self.categories = dict()
         self.colors = colors if colors is not None else default_colors()
 
         self.set_category(type(None), name="No behavior specified", color='black')
-
 
     def set_category(self, behavior_class, category=None, name=None, color=None):
         if category is None:
@@ -22,7 +20,6 @@ class BehaviorCategorizer(Categorizer):
         
         self.categories[behavior_class] = category
 
-    
     def get_category_of(self, element):
         behavior_class = type(element.behavior)
 
@@ -30,7 +27,6 @@ class BehaviorCategorizer(Categorizer):
             self.set_category(behavior_class)
         
         return self.categories[behavior_class]
-
 
 
 def default_colors():

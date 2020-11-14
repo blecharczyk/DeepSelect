@@ -1,7 +1,5 @@
 import random
-
 from deepselect.action.action import Action
-
 
 class MoveAction(Action):
     def __init__(self, cost):
@@ -11,6 +9,8 @@ class MoveAction(Action):
         source = agent.current_node
         if len(source.neighbors) == 0:
             raise RuntimeError("No neighboring nodes present")
+            #uncomment, if you do not want to have error
+            #return
 
         # Use resources to move to another node
         agent.resources = agent.resources - self.cost

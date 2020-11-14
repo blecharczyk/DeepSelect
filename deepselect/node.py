@@ -1,6 +1,5 @@
 from operator import attrgetter
 
-
 class Node:
     def __init__(self, node_id, resources):
         self.node_id = node_id
