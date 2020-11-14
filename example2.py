@@ -22,11 +22,11 @@ res = Resources(["food", "water"], [35, 60])
 cew = PathEnvironmentWizard()
 
 #Get env from file
-# ep = EnvironmentParser()
-# env = ep.make_environment("Environments/env1.txt")
+ep = EnvironmentParser()
+env = ep.make_environment("Environments/env1.txt")
 
 #modify parameters
-env = cew.create_env_structure(10)
+#env = cew.create_env_structure(7, 10)
 
 # Distribute resources between nodes
 cew.add_resources_to_every_node(env, res)

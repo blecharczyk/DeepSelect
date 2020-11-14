@@ -30,6 +30,7 @@ class Visualization:
 
         self.alw.init_directory("./Agents")
         self.rw.init_directory("./Results")
+        self.rw.prepare_files(self.env.get_resources_dict())
         self.alw.init_directory("./simplified_agent_life")
 
         self.alw.prepare_files()
@@ -45,7 +46,7 @@ class Visualization:
         self._ax.clear()
 
         if(self.total_steps % 4 == 0):
-            self.env.nodes[0].add_resources(Resources(["food", "water"], [1, 1]))
+            self.env.nodes[0].add_resources(Resources(["food", "water", "apples"], [1, 1, 1]))
 
         nx.draw_networkx(self.env.graph, pos=self._pos, ax=self._ax)
         os.system('cls')
