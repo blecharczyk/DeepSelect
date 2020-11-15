@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class Resources:
     def __init__(self, names, amounts):
         assert (len(names) == len(amounts))

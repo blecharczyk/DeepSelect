@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 from termcolor import colored
 
-from deepselect import Resources
 from deepselect.writers.agent_life_writer import AgentLifeWriter
 from deepselect.writers.results_writer import ResultsWriter
 

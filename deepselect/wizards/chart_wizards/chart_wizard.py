@@ -9,11 +9,11 @@ class ChartWizard():
         file_path = "simplified_agent_life/" + str(filename)
         return pd.read_csv(file_path)
 
-    def show_node_id_chart(self, df):
+    def show_node_id_chart(self, df, title):
         x = df.step.to_list()
         y = df.current_node.to_list()
         plt.plot(x, y, marker=".", linestyle = 'None', markersize = 10)
-        self.set_plot_properties("Nodes visited by the agent", 'Simulation step', "Node_id")
+        self.set_plot_properties("Nodes visited by the " + title, 'Simulation step', "Node_id")
         plt.show()
 
     def show_resources_chart(self, df, title):
