@@ -8,3 +8,4 @@ from deepselect.action import Action, IdleAction, MoveAction
 from deepselect.resources import Resources
 from deepselect.categorizer import Categorizer
 from deepselect.visualization import Visualization
+import deepselect.gp
