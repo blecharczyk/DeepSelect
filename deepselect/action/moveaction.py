@@ -1,6 +1,7 @@
 import random
 from deepselect.action.action import Action
 
+
 class MoveAction(Action):
     def __init__(self, cost):
         Action.__init__(self, cost)
