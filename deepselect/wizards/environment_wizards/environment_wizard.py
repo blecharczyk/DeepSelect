@@ -3,9 +3,7 @@ from abc import ABC, abstractmethod
 import random
 
 from deepselect.resources import Resources
-
 from deepselect.environment import Environment
-
 
 class EnvironmentWizard(ABC):
 

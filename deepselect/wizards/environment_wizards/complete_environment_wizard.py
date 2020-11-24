@@ -2,7 +2,6 @@ import math
 from itertools import combinations
 
 from deepselect.wizards.environment_wizards.environment_wizard import EnvironmentWizard
-
 from deepselect.environment import Environment
 
 

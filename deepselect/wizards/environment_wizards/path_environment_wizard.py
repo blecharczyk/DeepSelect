@@ -1,7 +1,5 @@
 from deepselect.wizards.environment_wizards.environment_wizard import EnvironmentWizard
-
 from deepselect.environment import Environment
-
 
 class PathEnvironmentWizard(EnvironmentWizard):
     def __init__(self):

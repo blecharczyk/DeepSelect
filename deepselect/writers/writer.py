@@ -6,6 +6,7 @@ class Writer(ABC):
     def __init__(self):
         pass
 
+
     def init_directory(self, dir_path):
         # Remove directory if exists
         try:

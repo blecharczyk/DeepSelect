@@ -22,6 +22,3 @@ class NodeResourcesWizard():
         plt.title(title)
         plt.xlabel(x_label)
         plt.ylabel(y_label)
-
-
-#https://stackoverflow.com/questions/9622163/save-plot-to-image-file-instead-of-displaying-it-using-matplotlib

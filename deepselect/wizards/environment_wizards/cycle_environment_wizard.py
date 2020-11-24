@@ -1,5 +1,4 @@
 from deepselect.wizards.environment_wizards.environment_wizard import EnvironmentWizard
-
 from deepselect.environment import Environment
 
 class CycleEnvironmentWizard(EnvironmentWizard):

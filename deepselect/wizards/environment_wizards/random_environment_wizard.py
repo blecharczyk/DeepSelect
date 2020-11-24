@@ -31,5 +31,6 @@ class RandomEnvironmentWizard(EnvironmentWizard):
             edge = all_possible_edges[i]
             env.add_edge(edge[0], edge[1])
 
+
     def calculate_number_of_combinations(self, number):
         return ((math.factorial(number))//(math.factorial(2) * math.factorial(number-2)))

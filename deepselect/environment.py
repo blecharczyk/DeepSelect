@@ -16,6 +16,7 @@ class Environment:
             for _ in range(node_count):
                 self.add_node(initial_resources)
 
+
     def add_node(self, initial_resources):
         node_id = len(self.nodes)
         node = Node(node_id, initial_resources)
@@ -25,17 +26,20 @@ class Environment:
 
         return node
 
+
     def add_edge(self, from_node, to_node):
         if not self.graph.has_edge(from_node, to_node):
             self.nodes[from_node].neighbors.append(self.nodes[to_node])
             self.nodes[to_node].neighbors.append(self.nodes[from_node])
             self.graph.add_edge(from_node, to_node)
 
+
     def remove_edge(self, from_node, to_node):
         if self.graph.has_edge(from_node, to_node):
             self.nodes[from_node].neighbors.remove(self.nodes[to_node])
             self.nodes[to_node].neighbors.remove(self.nodes[from_node])
             self.graph.remove_edge(from_node, to_node)
+
 
     def step(self):
         nodes = self.nodes[:]
@@ -55,19 +59,22 @@ class Environment:
             node.categorize_agents(self.agent_categorizer)
             node.categorize_objects(self.object_categorizer)
 
+
     def get_resources_dict(self):
         resources_dict = {}
         for e in self.nodes:
             resources_dict[e.node_id] = {}
-            for f in range(len(e.resources)):
-                resources_dict[e.node_id][e.resources.names[f]] = e.resources.amounts[f]
+            for f in e.resources.dict:
+                resources_dict[e.node_id][f] = e.resources[f]
         return resources_dict
+
 
     def get_agents_dict(self):
         agents_dict = {}
         for e in self.nodes:
             agents_dict[e.node_id] = len(e.agents)
         return agents_dict
+
 
     def print_env_components(self):
         resources = self.get_resources_dict()
@@ -84,6 +91,7 @@ class Environment:
         for i in self.nodes:
             sum = sum + len(i.agents)
         return sum
+
 
 def from_graph(G, initial_resources):
     nodes = []
